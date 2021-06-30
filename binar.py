@@ -1,34 +1,28 @@
-def solution(num):
+def solution(N):
 
-    count_zero, count_one, count_0 = 0, 0, 0
+    count_zero, count_one = 0, 0
 
-    a_list, list_count = [], []
+    list_num, list_count_zero = [], []
 
-    a = bin(num)
+    a = bin(N)
 
-    for i in a:
-        a_list.append(i)
+    for number in a:
+        list_num.append(number)
 
-    a_list = a_list[2:]
+    list_num = list_num[2:]
 
-    for i in a_list:
-        if i == '1':
+    for num in list_num:
+        if num == '1':
             count_one += 1
-        elif i == '0':
+            list_count_zero.append(count_zero)
+            count_zero = 0
+        else:
             count_zero += 1
 
-    for i in a_list:
-        if i == '1':
-            list_count.append(count_0)
-            count_0 = 0
-            continue
-        else:
-            count_0 += 1
-
-    if count_zero == 0 or count_one == 1:
-        return 0, a_list
+    if max(list_count_zero) == 0 or count_one == 1:
+        return 0, list_num
     else:
-        return max(list_count), a_list
+        return max(list_count_zero), list_num
 
 
 print(solution(1041))
