@@ -25,12 +25,10 @@ def solution(num):
         else:
             count_0 += 1
 
-    print(a_list)
-
     if count_zero == 0 or count_one == 1:
-        return 0
+        return 0, a_list
     else:
-        return max(list_count)
+        return max(list_count), a_list
 
 
-print(solution(529))
+print(solution(1041))
