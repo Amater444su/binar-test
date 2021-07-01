@@ -2,14 +2,11 @@ def solution(N):
 
     count_zero, count_one = 0, 0
 
-    list_num, list_count_zero = [], []
+    list_count_zero = []
 
     a = bin(N)
 
-    for number in a:
-        list_num.append(number)
-
-    list_num = list_num[2:]
+    list_num = [number for number in a[2:]]
 
     for num in list_num:
         if num == '1':
